@@ -54,15 +54,15 @@ jobs:
     
       - run: rsync -v gha-practice/backend/dist/index.js ${SERVER_USER}@${SERVER_IP}:~/index.js
         env:
-        SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
-        SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
+          SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
+          SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
         
       - run: ssh ${SERVER_USER}@${SERVER_IP} sudo systemctl restart backend
         env:
-        SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
-        SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
+          SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
+          SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
         
       - run: ssh ${SERVER_USER}@${SERVER_IP} sudo systemctl status backend
         env:
-        SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
-        SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
+          SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
+          SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
